@@ -31,7 +31,7 @@ export const TitleTexts = () => {
           initial="hidden"
           animate="visible"
           variants={container}
-          className=" uppercase text-black font-semibold text-6xl lg:text-7xl  "
+          className="uppercase font-medium text-6xl lg:text-7xl"
         >
           {menuItems.map((row, i) => (
             <motion.h1 key={i}
