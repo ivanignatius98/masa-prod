@@ -1,6 +1,6 @@
 "use client";
 import "./styles.css";
-import { Fragment, useState } from "react";
+import { useState } from "react";
 import { AnimatePresence } from "framer-motion";
 import { MenuToggle } from "@components/MenuToggle";
 import { Menu } from "@components/Menu";
@@ -10,10 +10,10 @@ import { TitleTexts } from "@components/TitleTexts";
 export default function App() {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <Fragment>
-      <div className="flex flex-1 w-full">
+    <div className="w-full">
+      <div className="flex" style={{ height: "calc(-4rem + 100svh)" }}>
         <motion.div
-          className="flex-1 bg-white"
+          className="flex-1 bg-white hidden md:block"
           variants={{
             hidden: {
               opacity: 0,
@@ -29,7 +29,7 @@ export default function App() {
           animate="visible"
         >
         </motion.div>
-        <div className="flex items-center flex-1">
+        <div className="flex md:items-center flex-1 py-40 md:p-0">
           <TitleTexts />
         </div>
       </div>
@@ -43,6 +43,6 @@ export default function App() {
       </AnimatePresence>
       <MenuToggle isOpen={isOpen} toggle={() => setIsOpen(!isOpen)} />
       {/* Sidebar End */}
-    </Fragment >
+    </div >
   );
 }
