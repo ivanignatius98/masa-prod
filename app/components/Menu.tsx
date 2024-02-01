@@ -65,8 +65,8 @@ export function Menu({ handleClose }: itemProps) {
           animate="visible"
           className="flex flex-col gap-2 p-4"
         >
-          {menuItems.map((row) =>
-            <motion.li variants={item} className="text-white font-bold p-2 text-5xl" >{row}</motion.li>
+          {menuItems.map((row, index) =>
+            <motion.li key={index} variants={item} className="text-white font-bold p-2 text-5xl" >{row}</motion.li>
           )}
         </motion.ul>
       </motion.nav>
