@@ -25,13 +25,13 @@ export const TitleTexts = () => {
     "STORES",
   ]
   return (
-    <div className="flex flex-col justify-end h-72 px-8">
+    <div className="flex flex-col justify-end h-60 lg:h-72 px-8">
       <div className="overflow-hidden">
         <motion.div
           initial="hidden"
           animate="visible"
           variants={container}
-          className=" uppercase text-black font-semibold text-7xl"
+          className="uppercase font-medium text-6xl lg:text-7xl"
         >
           {menuItems.map((row, i) => (
             <motion.h1 key={i}
