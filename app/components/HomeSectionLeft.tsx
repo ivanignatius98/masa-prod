@@ -1,21 +1,26 @@
 "use client";
 import { motion } from "framer-motion";
 import Image from 'next/image'
-import profilePic from '../../public/images/pexels-bayram-yalçın-16662460.jpg'
 import { useCallback, useEffect, useState } from "react";
 
 const Page = () => {
+  const [animateScroll, setAnimateScroll] = useState(false)
   const [offset, setOffset] = useState(0);
   useEffect(() => {
-    const interval = setInterval(() => setOffset((prev) => prev + 1), 10);
-    return () => {
-      clearInterval(interval);
-    };
+    if (animateScroll) {
+      const interval = setInterval(() => setOffset((prev) => prev + 1), 10);
+      return () => {
+        clearInterval(interval);
+      };
+    }
+  }, [animateScroll]);
+  useEffect(() => {
+    const timeoutId = setTimeout(() => setAnimateScroll(true), 4000); // 1000 milliseconds (1 second)
+    return () => clearTimeout(timeoutId);
   }, []);
-
   return (
     <motion.div
-      className="flex-1 bg-white hidden md:block pr-4 overflow-hidden"
+      className="flex-1 bg-white hidden md:block pr-8 overflow-hidden"
       variants={{
         hidden: {
           opacity: 0,
@@ -30,25 +35,29 @@ const Page = () => {
       initial="hidden"
       animate="visible"
     >
-      <div className="flex gap-4">
-        <div className="transition-all" style={{ transform: `translateY(-${offset / 10}px)` }}>
-          {[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,].map(() =>
-            <div className="mb-4">
+      <div className="flex gap-8">
+        <div className="transition-all w-full " style={{ transform: `translateY(-${offset / 2}px)` }}>
+          {[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,].map((v, i) =>
+            <div key={i} className="mb-8 inline-block">
               <Image
-                className=""
-                src={profilePic}
+                className="aspect-[3/4] object-cover"
+                src={"https://placehold.co/800x1200/orange/white.png"}
                 alt="Picture of the author"
+                width={400}
+                height={600}
               />
-              {/* {offset} */}
             </div>
           )}
         </div>
-        <div className="transition-all" style={{ transform: `translateY(-${offset / 8}px)` }}>
-          {[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,].map(() =>
-            <div className="mb-4">
+        <div className="transition-all w-full " style={{ transform: `translateY(-${offset / 2}px)` }}>
+          {[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,].map((v, i) =>
+            <div key={i} className="mb-8 inline-block">
               <Image
-                src={profilePic}
+                className="aspect-[2/3] object-cover"
+                src={"https://placehold.co/800x1200/orange/white.png"}
                 alt="Picture of the author"
+                width={400}
+                height={600}
               />
             </div>
           )}
