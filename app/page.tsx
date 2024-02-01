@@ -11,7 +11,7 @@ export default function App() {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <div className="w-full">
-      <div className="flex" style={{ height: "calc(-4rem + 100svh)" }}>
+      <div className="flex" style={{ height: "100svh" }}>
         <motion.div
           className="flex-1 bg-white hidden md:block"
           variants={{
