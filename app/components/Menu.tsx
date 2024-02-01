@@ -23,7 +23,7 @@ const container = {
   visible: {
     transition: {
       delayChildren: 0.1, // Delay before stagger starts
-      staggerChildren: 0.05, // Stagger duration between children
+      staggerChildren: 0.2, // Stagger duration between children
     },
   }
 }
