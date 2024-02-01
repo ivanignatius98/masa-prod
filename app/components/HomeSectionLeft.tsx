@@ -1,21 +1,21 @@
 "use client";
 import { motion } from "framer-motion";
-// import Image from 'next/image'
-// import profilePic from '../../public/images/pexels-bayram-yalçın-16662460.jpg'
-// import { useEffect, useState } from "react";
+import Image from 'next/image'
+import profilePic from '../../public/images/pexels-bayram-yalçın-16662460.jpg'
+import { useCallback, useEffect, useState } from "react";
 
 const Page = () => {
-  // const [offset, setOffset] = useState(0);
+  const [offset, setOffset] = useState(0);
+  useEffect(() => {
+    const interval = setInterval(() => setOffset((prev) => prev + 1), 10);
+    return () => {
+      clearInterval(interval);
+    };
+  }, []);
 
-  // useEffect(() => {
-  //   const interval = setInterval(() => setOffset((prev) => prev + 1), 100);
-  //   return () => {
-  //     clearInterval(interval);
-  //   };
-  // }, []);
   return (
     <motion.div
-      className="flex-1 bg-white hidden md:block pr-4"
+      className="flex-1 bg-white hidden md:block pr-4 overflow-hidden"
       variants={{
         hidden: {
           opacity: 0,
@@ -30,19 +30,20 @@ const Page = () => {
       initial="hidden"
       animate="visible"
     >
-      {/* <div className="flex gap-4">
-        <div className="overflow-hidden h-screen">
+      <div className="flex gap-4">
+        <div className="transition-all" style={{ transform: `translateY(-${offset / 10}px)` }}>
           {[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,].map(() =>
             <div className="mb-4">
               <Image
+                className=""
                 src={profilePic}
                 alt="Picture of the author"
               />
-              {offset}
+              {/* {offset} */}
             </div>
           )}
         </div>
-        <div className="overflow-hidden h-screen">
+        <div className="transition-all" style={{ transform: `translateY(-${offset / 8}px)` }}>
           {[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,].map(() =>
             <div className="mb-4">
               <Image
@@ -53,7 +54,7 @@ const Page = () => {
           )}
 
         </div>
-      </div> */}
+      </div>
     </motion.div>
   )
 };
