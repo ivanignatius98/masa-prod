@@ -13,7 +13,7 @@ export default function App() {
     <Fragment>
       <div className="flex flex-1 w-full">
         <motion.div
-          className="flex-1 bg-white text-black"
+          className="flex-1 bg-white"
           variants={{
             hidden: {
               opacity: 0,
