@@ -20,13 +20,13 @@ export const TitleTexts = () => {
   };
   const menuItems: string[] = ["WE BUILD", "DIGITAL", "FLAGSHIP", "STORES"];
   return (
-    <div className="flex flex-col justify-end h-60 lg:h-[230px] px-8">
+    <div className="flex flex-col justify-end h-60 xl:h-[302px] pl-8">
       <div className="overflow-hidden">
         <motion.h1
           initial="hidden"
           animate="visible"
           variants={container}
-          className="uppercase text-[3.75rem] lg:text-[4.5rem] leading-[0.8] tracking-tighter"
+          className="uppercase text-[8vmin] xl:text-[10vmin] leading-[0.8] tracking-tighter"
         >
           {menuItems.map((row, i) => (
             <motion.div
