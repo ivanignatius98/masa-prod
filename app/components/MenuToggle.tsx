@@ -15,7 +15,7 @@ const Path = ({ isOpen, ...props }: any) => (
 export const MenuToggle = ({ toggle, isOpen }: any) => {
   return (
     <button
-      className="flex justify-center items-center absolute left-[15px] top-[18px] w-12 h-12 rounded-full bg-pink-400"
+      className="flex justify-center items-center fixed left-[15px] top-[18px] w-12 h-12 rounded-full bg-pink-400"
       onClick={toggle}
     >
       <svg width="23" height="18" viewBox="0 0 23 18">
