@@ -7,8 +7,8 @@ export const TitleTexts = () => {
         delayChildren: 0.1, // Delay before stagger starts
         staggerChildren: 0.4, // Stagger duration between children
       },
-    }
-  }
+    },
+  };
 
   const item = {
     hidden: {
@@ -16,33 +16,29 @@ export const TitleTexts = () => {
     },
     visible: {
       height: "auto",
-    }
-  }
-  const menuItems: string[] = [
-    "WE BUILD",
-    "DIGITAL",
-    "FLAGSHIP",
-    "STORES",
-  ]
+    },
+  };
+  const menuItems: string[] = ["WE BUILD", "DIGITAL", "FLAGSHIP", "STORES"];
   return (
-    <div className="flex flex-col justify-end h-60 lg:h-72 px-8">
+    <div className="flex flex-col justify-end h-60 lg:h-[230px] px-8">
       <div className="overflow-hidden">
-        <motion.div
+        <motion.h1
           initial="hidden"
           animate="visible"
           variants={container}
-          className="uppercase font-medium text-6xl lg:text-7xl"
+          className="uppercase text-[3.75rem] lg:text-[4.5rem] leading-[0.8] tracking-tighter"
         >
           {menuItems.map((row, i) => (
-            <motion.h1 key={i}
+            <motion.div
+              key={i}
               variants={item}
+              style={{ marginLeft: i == 2 ? 48 : 0 }}
             >
               {row}
-            </motion.h1>
+            </motion.div>
           ))}
-        </motion.div>
+        </motion.h1>
       </div>
     </div>
-  )
-}
-
+  );
+};
